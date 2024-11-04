@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp-deployment
+  labels:
+    app: pythonapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+      - name: pythonapp-container
+        image: gowtham904/pythonapp-kannan:v1  # Update with the correct image tag/version
+        ports:
+        - containerPort: 80  # Replace with the port your app listens on
